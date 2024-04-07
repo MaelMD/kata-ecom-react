@@ -1,4 +1,3 @@
-
 const CheckoutPage: React.FC = () => {
 
   return (
