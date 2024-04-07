@@ -1,6 +1,8 @@
 import React from "react";
 import { useCart } from "../context/CartContext";
 import { Link } from "react-router-dom";
+import { FaTrashCan } from "react-icons/fa6";
+import { TbMoodSadSquint } from "react-icons/tb";
 
 const CartPage: React.FC = () => {
   const { state, dispatch } = useCart();
@@ -61,15 +63,20 @@ const CartPage: React.FC = () => {
                   />
                   <button
                     onClick={() => handleRemoveFromCart(item.id)}
-                    className="text-red-500"
+                    className="text-red-500 text-xl"
                   >
-                    Remove
+                    <FaTrashCan />
                   </button>
                 </div>
               </div>
             ))
           ) : (
-            <p>Your cart is empty.</p>
+            <div className="col-span-full flex items-center justify-center flex-col py-24">
+              <p className="text-9xl">
+                <TbMoodSadSquint />
+              </p>
+              <p className="text-4xl pt-7">Your cart is empty !</p>
+            </div>
           )}
         </div>
         {state.items.length > 0 && (
